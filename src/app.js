@@ -3,6 +3,8 @@ require("dotenv").config();
 const express =require("express"); 
 const app =express();
 
+const PORT =3000;
+
 const v1WorkoutRouter= require("./V1/routes/workoutRoutes");
 
 const cors =require("cors"); 
@@ -13,8 +15,8 @@ app.use(cors());
 app.use("/api/V1/workouts", v1WorkoutRouter);
 
 
-app.listen(process.env.PORT,()=> {
-    console.log("Server listening on port"); 
+app.listen(PORT,()=> {
+    console.log(`Server listening on port ${PORT}`); 
 })
 
 dbConnect()
