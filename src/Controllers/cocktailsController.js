@@ -1,6 +1,6 @@
-const cocteles = require('../Config/workout')
+const cocteles = require('../Config/cocktails')
 
-const getAllworkouts= (req, res) =>{
+const getAllCocktails= (req, res) =>{
     cocteles.find((err, docs)=> {
         if (err) throw new Error(err);
         console.log(docs)
@@ -8,7 +8,7 @@ const getAllworkouts= (req, res) =>{
     } ) 
 };
 
-const getOneWorkout = (req, res) => {
+const getOneCocktail = (req, res) => {
     cocteles.find({_id:req.params._id},(err, docs)=> {
         if (err) throw new Error(err);
         console.log(docs)
@@ -16,7 +16,7 @@ const getOneWorkout = (req, res) => {
     } ) 
 };
 
-const createNewWorkout= (req, res) => {
+const createNewCocktail= (req, res) => {
     cocteles.create(req.body, (err, docs)=> {
         if (err) throw new Error(err);
         console.log(docs)
@@ -24,7 +24,7 @@ const createNewWorkout= (req, res) => {
     } ) 
 };
 
-const updateOneWorkout =(req, res) =>{
+const updateOneCocktail =(req, res) =>{
     cocteles.updateOne({_id:req.params._id},{
         Name: req.body.Name,
         liqueur: req.body.liqueur,
@@ -40,8 +40,8 @@ const updateOneWorkout =(req, res) =>{
     })
 };
 
-    const deleteOneWorkout =(req, res) => {
-        cocteles.findOneAndDelete({_id:req.body._id}, function(docs, err){
+    const deleteOneCocktail =(req, res) => {
+        cocteles.findOneAndDelete({_id:req.params._id}, function(docs, err){
             if(!err){
                 res.send(docs);
             } else {
@@ -51,8 +51,8 @@ const updateOneWorkout =(req, res) =>{
     };
 
     module.exports= {
-        getAllworkouts,
-        getOneWorkout,
-        createNewWorkout,
-        updateOneWorkout,
-        deleteOneWorkout  }   
+        getAllCocktails,
+        getOneCocktail,
+        createNewCocktail,
+        updateOneCocktail,
+        deleteOneCocktail  }   

@@ -5,14 +5,14 @@ const app =express();
 
 const PORT =3000;
 
-const v1WorkoutRouter= require("./V1/routes/workoutRoutes");
+const v1cocktailsRouter= require("./V1/routes/cocktailsRoutes");
 
 const cors =require("cors"); 
 const dbConnect =require('./Config/mongo');
 
 app.use(express.json())
 app.use(cors());
-app.use("/api/V1/workouts", v1WorkoutRouter);
+app.use("/api/V1/cocktails", v1cocktailsRouter);
 
 
 app.listen(PORT,()=> {
