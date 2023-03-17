@@ -2,8 +2,9 @@ require("dotenv").config();
 
 const express =require("express"); 
 const app =express();
+require("dotenv").config(); 
 
-const PORT =3000;
+app.set('port', process.env.PORT || 4000)
 
 const v1cocktailsRouter= require("./V1/routes/cocktailsRoutes");
 
@@ -15,8 +16,8 @@ app.use(cors());
 app.use("/api/V1/cocktails", v1cocktailsRouter);
 
 
-app.listen(PORT,()=> {
-    console.log(`Server listening on port ${PORT}`); 
+app.listen(app.get('port'),()=> {
+    console.log(`Server listening on port ${app.get('port')}`); 
 })
 
 dbConnect()
